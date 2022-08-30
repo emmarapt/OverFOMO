@@ -1,0 +1,8 @@
+Altitude: 10
+Sidelap: 70
+Initial Velocity: 3
+Time Interval: 1
+Scanning Distance: 2.55
+GSD: 0.66
+ViewWP1: [50.61466238436415, 6.989793137702924]
+ViewWP_parallel: [50.61465427977925, 6.989805875659023]
