@@ -5,7 +5,7 @@
 
 <div align="center">
   <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/Logo.png">
-    <img src="images/Logo.png" alt="" width="500" height="200">
+    <img src="images/Logo.png" alt="" width="550" height="200">
   </a>
 
   <h3 align="center">Adaptive Coverage Path Planning</h3>
@@ -97,7 +97,18 @@ Second, for the adaptive path planning approach you should download any availabl
    
 3. Download any of the available [AirSim Environments](https://github.com/microsoft/AirSim/releases) based on your OS
   
-4. Open an AirSim environment and run:
+  
+4. Open an AirSim environment
+   
+   4.1 For Windows users:
+   
+   Go to AirSim's environment folder and launch Unreal by running the .exe application 
+   
+   4.2 For Linux users:
+   
+   Go to AirSim's environment folder via a terminal and launch Unreal by running the .sh file 
+
+5. Finally, navigate to project directory and run:
     ```sh
    python main.py
    ```
@@ -150,7 +161,7 @@ For the rest parameters, you need just to replace the "path" entries with the pa
 Now that you have the Adaptive Coverage Path Planning method running, you can use it for dealing with Informative Path Planning problems. 
 Here is a video demonstration of using this project utilizing AirSim simulator in AirSimNH environment.
 
-![](https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/gif/ezgif.com-gif-maker.gif)
+![](https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/gif/demo.gif)
 
 
 <!-- ############################################### -->
