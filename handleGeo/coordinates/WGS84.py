@@ -3,8 +3,8 @@
 
 import math
 
-from mCPP.handleGeo.coordinates.ECEF import ECEF
-from mCPP.handleGeo.coordinates.NED import NED
+from handleGeo.coordinates.ECEF import ECEF
+from handleGeo.coordinates.NED import NED
 
 
 class WGS84_class:

@@ -1,8 +1,8 @@
 ﻿# from com.app.choosepath.pathPlanning.handleGeo.coordinates import *
-from mCPP.handleGeo.coordinates import WGS84
-from mCPP.handleGeo.coordinates.WGS84 import WGS84_class
-from mCPP.handleGeo.coordinates.NED import NED
-from mCPP.handleGeo.coordinates.ECEF import ECEF
+from handleGeo.coordinates import WGS84
+from handleGeo.coordinates.WGS84 import WGS84_class
+from handleGeo.coordinates.NED import NED
+from handleGeo.coordinates.ECEF import ECEF
 
 import math
 import numpy as np
