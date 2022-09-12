@@ -15,7 +15,7 @@
     <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning"><strong>Explore the docs »</strong></a>
     <br /> -->
     <br />
-    <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/gif/ezgif.com-gif-maker.gif">View Demo</a>
+    <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/gif/demo.gif">View Demo</a>
     ·
     <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/issues">Report Bug</a>
     ·
@@ -75,10 +75,24 @@ To get a local copy up and running follow these simple steps.
 
 First, to run the project you should install the required system packages:
    ```sh
-   pip install -r requirements.txt
+   pip install -r requirements.txt (FIX LIBRARIES AS STANDALONE PROJECT)
    ```
+Second, install GDAL.
 
-Second, for the adaptive path planning approach you should download any available dataset for precision agriculture applications. 
+   1. Download a pre-built [gdal wheel file](https://www.lfd.uci.edu/~gohlke/pythonlibs/#gdal)
+   
+   > Note: You’ll need to select the file that matches your specific Python version and operating system (32 or 64 bit).
+    
+   2.   Install the wheel file with pip
+  
+   ```sh
+   python -m pip install path-to-wheel-file.whl
+   ```
+   Assuming that you’ve used the appropriate wheel file, this should successfully install gdal.
+    
+   If you use anaconda environment, please follow the [tutorial for installing gdal with conda](https://opensourceoptions.com/blog/how-to-install-gdal-with-anaconda/).
+
+Third, for the adaptive path planning approach you should download any available dataset for precision agriculture applications. 
 
 > Note: The [ASLdataset](https://projects.asl.ethz.ch/datasets/doku.php?id=weedmap:remotesensing2018weedmap) Weed Map Dataset was used for this research.
  
@@ -87,7 +101,7 @@ Second, for the adaptive path planning approach you should download any availabl
 
 1. Clone the repo 
    ```sh
-   git clone https://github.com/emmarapt/Project-Name.git
+   git clone https://github.com/emmarapt/Adaptive_Coverage_Path_Planning.git
    ```
 2. Install AirSim
    ```sh
@@ -99,7 +113,7 @@ Second, for the adaptive path planning approach you should download any availabl
   
   
 4. Open an AirSim environment
-   
+    
    4.1 For Windows users:
    
    Go to AirSim's environment folder and launch Unreal by running the .exe application 
@@ -128,6 +142,10 @@ parameters.py contains all the necessary information to run the project.
 
 > Note: The list of the waypoints are formatted in [WGS84](https://gisgeography.com/wgs84-world-geodetic-system/) coordinates.
 
+### Dataset
+- ortho_georef_img contains the path entry of the .tif field image within the dataset's folder 
+- ortho_rgb_img contains the path entry of the .png field image within the dataset's folder 
+
 ### Constant speed
 - mission_type when 'constant', the robot will perform a mission with constant speed
 
@@ -135,22 +153,22 @@ parameters.py contains all the necessary information to run the project.
 - mission_type when 'variable', the robot will perform a mission with adaptive speed based on the received online information
 
 ### AirSim
-- initial_velocity defines the initial speed of the robot during its mission. 
+- initial_velocity defines the initial speed of the robot during its mission
 
 > Note: If mission_type is 'constant' the speed of the robot will be always equal to initial_velocity
 
-- distance_threshold defines a limit threshold distance  between the current location of the robot and the next waypoint
+- distance_threshold defines a limit threshold distance between the current location of the robot and the next waypoint
 
 > Note: This is needed to overcome issue mentioned [here](https://github.com/microsoft/AirSim/issues/1643). It may need adjudications depending on the speed and the size of the operational area.
 
--  time_interval defines the time interval capture of the images
+- time_interval defines the time interval capture of the images
 
-- corner_radius defines a circle around every turn-waypoint with a radius equal to its value.
+- corner_radius defines a circle around every turn-waypoint with a radius equal to its value
 
 > Note: This is needed so that the robot does not deviate from the original flight plan due to speed fluctuations.
 
 
-For the rest parameters, you need just to replace the "path" entries with the paths in your system.
+For the rest parameters, you just need to replace the "path" entries to match with the paths in your operating system.
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -199,7 +217,7 @@ Marios Krestenitis - [github](https://github.com/wave-transmitter) - mikrestenit
 
 Emmanuel K. Raptis - [github](https://github.com/emmarapt) - emmarapt@iti.gr
 
-Athanasios Ch. Kapoutis - [github](https://github.com/athakapo) - athakapo@iti.gr
+Athanasios Ch. Kapoutsis - [github](https://github.com/athakapo) - athakapo@iti.gr
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -207,7 +225,7 @@ Athanasios Ch. Kapoutis - [github](https://github.com/athakapo) - athakapo@iti.g
 <!-- ############################################### -->
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-
+This research has been financed by the European Regional Development Fund of the European Union and Greek national funds through the Operational Program Competitiveness, Entrepreneurship and Innovation, under the call RESEARCH - CREATE - INNOVATE (T1EDK-00636).
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
