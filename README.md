@@ -4,8 +4,8 @@
 <br />
 
 <div align="center">
-  <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/Logo.png">
-    <img src="images/Logo.png" alt="" width="550" height="200">
+  <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/Logo1.png">
+    <img src="images/Logo1.png" alt="" width="550" height="200">
   </a>
 
   <h3 align="center">Adaptive Coverage Path Planning</h3>
@@ -41,6 +41,7 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#demo">Demo</a></li>
+    <li><a href="#qualitative-results">Qualitative Results</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -58,7 +59,7 @@
 
 This project deals with the path planning of a mobile robot in an active sensing coverage path planning scheme adjusting the robot's speed based on the online received information of the captured images. 
 At the heart of the proposed approach lies a novel mechanism that regulates the speed of the robot in accordance with both the relative quantity of identified classes (i.e., crops and weeds) and the confidence level of such detection. 
-Based on the [UNet]() architecture, a state-of-the-art deep learning segmentation model is deployed for the identification and classification of crops and weeds in the incoming images.
+Based on the [UNet-add ref]() architecture, a state-of-the-art deep learning segmentation model is deployed for the identification and classification of crops and weeds in the incoming images.
 The overall methodology is integrated into a simurealistic pipeline utilizing [AirSim](https://github.com/microsoft/AirSim) simulator for real-time observations.
 
 
@@ -75,9 +76,8 @@ To get a local copy up and running follow these simple steps.
 
 **Step 1. To run the project you should install the required system packages:**
    ```sh
-   pip install -r requirements.txt (FIX LIBRARIES AS STANDALONE PROJECT)
+   pip install -r requirements.txt
    ```
-> Note: 
 
 **Step 2. Install GDAL.**
 
@@ -98,7 +98,7 @@ To get a local copy up and running follow these simple steps.
 
 **Step 4. For the adaptive path planning approach you should download any available dataset for precision agriculture applications.** 
 
-> Note: The [ASLdataset](https://projects.asl.ethz.ch/datasets/doku.php?id=weedmap:remotesensing2018weedmap) Weed Map Dataset was used for this research.
+> Note: The Weed Map [ASLdataset](https://projects.asl.ethz.ch/datasets/doku.php?id=weedmap:remotesensing2018weedmap) was used for this research.
  
 
 ### Installation
@@ -177,8 +177,24 @@ For the rest parameters, you just need to replace the "path" entries to match wi
 Now that you have the Adaptive Coverage Path Planning method running, you can use it for dealing with Informative Path Planning problems. 
 Here is a video demonstration of using this project utilizing AirSim simulator in AirSimNH environment.
 
-![](https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/gif/demo.gif)
+<div align="center">
+  <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/gif/demo.gif">
+    <img src="gif/demo.gif" alt="" width="650" height="350">
+  </a>
+</div>
 
+
+<!-- ############################################### -->
+<!-- Qualitative Results -->
+## Qualitative Results
+To validate the efficiency of the Adaptive Coverage Path Planning method we evaluate the generated orthomosaic maps in terms of image quality. 
+Towards this direction, simulated missions deployed with the baseline and the active sensing method are conducted for the field "002" of the Weedmap [ASLdataset](https://projects.asl.ethz.ch/datasets/doku.php?id=weedmap:remotesensing2018weedmap), with nominal speed of 3 m/s. 
+
+<div align="center">
+  <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/Qualitative_Results.png">
+    <img src="images/Qualitative_Results.png" alt="" width="1000" height="570">
+  </a>
+</div>
 
 <!-- ############################################### -->
 <!-- CONTRIBUTING -->
