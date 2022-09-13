@@ -3,17 +3,15 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 
-
-
 """ Functions """
 
 
 def objective(x, y, weight_cl, weight_cr):
-	return weight_cl * (x ** 2) - weight_cr * (y ** 2)
+    return weight_cl * (x ** 2) - weight_cr * (y ** 2)
 
 
 def weight_cr_fun(x, y):
-	return - x**2 + x + y
+    return - x ** 2 + x + y
 
 
 # define range for input
@@ -22,12 +20,9 @@ r_min, r_max = 0, 1.0
 xaxis = np.arange(r_min, r_max, 0.1).tolist()
 yaxis = np.arange(r_min, r_max, 0.1).tolist()
 
-
 # Defining the range for the input values on the horizontal axis
 cl = np.arange(0, 1, 0.1).tolist()
 cr = np.arange(0, 1, 0.1).tolist()
-
-
 
 """ Plot for Weight_CL """
 
@@ -47,15 +42,12 @@ plt.title('Plot for Weight_CL')
 plt.legend(["weight_cl", "weight_cr"])
 plt.grid()
 
-
 # create a mesh from the axis
 cl, cr = meshgrid(xaxis, yaxis)
 """for speed"""
 objective_fun_speed = objective(cl, cr, weight_cl=0.8, weight_cr=0.2)
 """ for weight CR"""
 objective_fun_cr = weight_cr_fun(cl, cr)
-
-
 
 """ Plot for Weight_CR"""
 
@@ -68,7 +60,6 @@ ax.set_zlabel('Weight for CR')
 ax.set_title('Plot for Weight_CR')
 ax.view_init(azim=-20, elev=15)
 plt.grid()
-
 
 """ Plot for Speed """
 
@@ -83,5 +74,3 @@ ax.view_init(azim=-100, elev=15)
 plt.grid()
 
 plt.show()
-
-

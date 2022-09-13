@@ -6,8 +6,6 @@ import cv2
 # import tensorflow.compat.v1 as tf
 # tf.disable_v2_behavior()
 
-import sys
-#sys.path.append('/home/mikrestenitis/GANs/Pix2pix')
 import keras_tools
 keras_tools.keras_allow_growth()
 

@@ -1,6 +1,5 @@
 from handleGeo.ConvCoords import ConvCoords
 
-
 import time
 import xml.etree.cElementTree as ET
 import json
@@ -8,16 +7,10 @@ import sys
 import random
 import airsim
 import numpy as np
-import os
 import math
 import threading
 import sched
-from datetime import datetime
 
-# ----- GPU imports ------ #
-# sys.path.append('/home/mikrestenitis/GANs/Pix2pix')
-# import keras_tools
-# keras_tools.keras_allow_growth()
 from get_new_speed import GetViewpointImage, GetSpeed
 
 # --- Path definition -- #
@@ -53,7 +46,7 @@ class Thread_class(threading.Thread):
 
         try:
 
-            getpose = GetmultirotorState('Drone1')  # client.simGetVehiclePose('Drone1')
+            getpose = GetmultirotorState('Drone1')
 
             current_ned = np.array(
                 (getpose.kinematics_estimated.position.x_val, getpose.kinematics_estimated.position.y_val))
@@ -78,33 +71,30 @@ class Thread_class(threading.Thread):
                                                             airsim.DrivetrainType.ForwardOnly,
                                                             airsim.YawMode(False, 0), vehicle_name='Drone1')
 
-                turn = False
-                #else:  # mission_type == 'variable'
+                    turn = False
+                else:  # mission_type == 'variable'
 
-                    #resulting_path = client.moveOnPathAsync(path_No1, velocity, 500, airsim.DrivetrainType.ForwardOnly,
-                    #                                         airsim.YawMode(False, 0), vehicle_name='Drone1')
-                    #
-                    # # """ Dummy adaptive mission """
-                    # # time.sleep(0.5)
-                    # # new_speed = random.uniform(5, 7)
-                    # # print('Speed adjusted to: {:.4f}'.format(new_speed))
-                    # #
-                    # # resulting_path = client.moveOnPathAsync(path_No1, new_speed, 500, airsim.DrivetrainType.ForwardOnly,
-                    # #                                         airsim.YawMode(False, 0), vehicle_name='Drone1')
-                    #
-                    # """Real adaptive mission """
-                    # """CONTROL SPEED"""
-                    # # -- Step #1: Get current viewpoint -- #
-                    # # print("ViewWP:", ViewWPs_WGS84[-1][0][0])
-                    # waypoint = ViewWPs_WGS84[-1][0][0]  # [50.61460849406916, 6.989823076008492]
-                    # orientation = ViewWPs_WGS84_orientantion[-1]  # 39.97415723366056
-                    # # -- Step #2: Get new velocity -- #
-                    # img = viewpoint.get_image(waypoint, orientation)
-                    # new_speed = speed_adj.calculate_speed_adj(img)
+                    """ Dummy adaptive mission """
+                    # time.sleep(0.5)
+                    # new_speed = random.uniform(4, 7)
                     # print('Speed adjusted to: {:.4f}'.format(new_speed))
-                    # # -- Step #3: Update speed on path -- #
+                    #
                     # resulting_path = client.moveOnPathAsync(path_No1, new_speed, 500, airsim.DrivetrainType.ForwardOnly,
                     #                                         airsim.YawMode(False, 0), vehicle_name='Drone1')
+                #
+                """Adaptive mission """
+                """CONTROL SPEED"""
+                # -- Step #1: Get current viewpoint -- #
+                # print("ViewWP:", ViewWPs_WGS84[-1][0][0])
+                waypoint = ViewWPs_WGS84[-1][0][0]  # [50.61460849406916, 6.989823076008492]
+                orientation = ViewWPs_WGS84_orientantion[-1]  # 39.97415723366056
+                # -- Step #2: Get new velocity -- #
+                img = viewpoint.get_image(waypoint, orientation)
+                new_speed = speed_adj.calculate_speed_adj(img)
+                print('Speed adjusted to: {:.4f}'.format(new_speed))
+                # -- Step #3: Update speed on path -- #
+                resulting_path = client.moveOnPathAsync(path_No1, new_speed, 500, airsim.DrivetrainType.ForwardOnly,
+                                                        airsim.YawMode(False, 0), vehicle_name='Drone1')
 
         except:
             pass
@@ -114,13 +104,11 @@ if __name__ == '__main__':
 
     """
 ########################################################################################################################
-    ----------------------------------------------  mCPP -------------------------------------------------------------
+    ---------------------------------------------- CPP -------------------------------------------------------------
 ########################################################################################################################
     """
 
-
-    """ PARAMETERS """
-
+    """Define sensor specifications"""
     # RedEdge-M Image Sensor specs
     HFOV = 46
     hRes = 1280
@@ -160,23 +148,22 @@ if __name__ == '__main__':
     file = open(json_path)
     data = json.load(file)
 
-    # Read polygon data from QGIS:
-    if QGIS:
+    if QGIS:  # If QGIS is True, read polygon data as QGIS format
         polygon_file = open(qgis_path)
         polygon_data = json.load(polygon_file)
         field_name = polygon_data['name']
 
         # Polygon
-        # for p in polygon_data['features']:
-        #     for i in range(len(p['geometry']['coordinates'][0][0])):
-        #         geoCoords.append([p['geometry']['coordinates'][0][0][i][1], p['geometry']['coordinates'][0][0][i][0]])
+        for p in polygon_data['features']:
+            for i in range(len(p['geometry']['coordinates'][0][0])):
+                geoCoords.append([p['geometry']['coordinates'][0][0][i][1], p['geometry']['coordinates'][0][0][i][0]])
 
         # LineString
-        for p in polygon_data['features']:
-            for i in range(len(p['geometry']['coordinates'][0])):
-                geoCoords.append([p['geometry']['coordinates'][0][i][1], p['geometry']['coordinates'][0][i][0]])
+        # for p in polygon_data['features']:
+        #     for i in range(len(p['geometry']['coordinates'][0])):
+        #         geoCoords.append([p['geometry']['coordinates'][0][i][1], p['geometry']['coordinates'][0][i][0]])
 
-    else:
+    else:  # If QGIS is False, read polygon data from .json
         for i in data['polygon']:
             geoCoords.append([i.get("lat"), i.get("long")])
 
@@ -201,7 +188,7 @@ if __name__ == '__main__':
     portions = data['rPortions']
     pathsStrictlyInPoly = data['pathsStrictlyInPoly']
 
-    randomInitPos = False  # If false define in WGS84 the initialPos of the drones
+    randomInitPos = False  # If false define in .json the initialPos of the drones as WGS84 format
     notEqualPortions = False
     initial_positions = []
     if randomInitPos is False:
@@ -228,16 +215,9 @@ if __name__ == '__main__':
     getpose = client.getMultirotorState('Drone1')
 
     names = []
-    """
-    # ------------------ Read path from mCPP ---------------------------------------------------------------------------
-    """
-    # for i in range(len(WaypointsNED[0][0])):
-    #     # path_No1.append(airsim.Vector3r(WaypointsNED[0][0][i][0] - 120, WaypointsNED[0][0][i][1] - 70, z))
-    #     path_No1.append(airsim.Vector3r(WaypointsNED[0][0][i][0], WaypointsNED[0][0][i][1], z))
-    #     names.append('No{}'.format(i))
 
     """
-    # ------------------ Read predefined path --------------------------------------------------------------------------
+    # ------------------ Read path from TurnWPs.txt --------------------------------------------------------------------
     """
 
     TurnWPs = []
@@ -257,7 +237,6 @@ if __name__ == '__main__':
         No_wp += 1
 
     # # Visualize waypoints
-    # For Drone1
     """ Press T for path visualization"""
     client.simPlotLineStrip(points=path_No1, color_rgba=[1.0, 1.0, 0.0, 1.0], thickness=30, is_persistent=True)
     # client.simPlotStrings(strings=names, positions=path_No1, color_rgba=[1.0, 1.0, 0.0, 1.0])
@@ -270,8 +249,10 @@ if __name__ == '__main__':
 
     # ##################################################################################################################
     """
-    For CoFly - Adaptive path planning based on vegetation knowledge ---------------------------------------------------
+                                    Adaptive path planning based on vegetation knowledge 
     """
+
+
     # ##################################################################################################################
 
     def euler_from_quaternion(x, y, z, w):
@@ -309,7 +290,8 @@ if __name__ == '__main__':
                                                  getpose.kinematics_estimated.orientation.z_val,
                                                  getpose.kinematics_estimated.orientation.w_val)
 
-        print("Current Drone's speed:", math.sqrt(getpose.kinematics_estimated.linear_velocity.x_val**2 + getpose.kinematics_estimated.linear_velocity.y_val**2 + getpose.kinematics_estimated.linear_velocity.z_val**2))
+        print("Current Drone's speed:", math.sqrt(
+            getpose.kinematics_estimated.linear_velocity.x_val ** 2 + getpose.kinematics_estimated.linear_velocity.y_val ** 2 + getpose.kinematics_estimated.linear_velocity.z_val ** 2))
         ViewWPs_WGS84.append(ConvCoords(geoCoords, geoObstacles).NEDToWGS84([[wp_interval_helper[-1]]]))
         ViewWPs_WGS84_orientantion.append(np.degrees(Yaw))
 
@@ -321,7 +303,8 @@ if __name__ == '__main__':
             '{}, {}'.format(getpose.kinematics_estimated.position.x_val, getpose.kinematics_estimated.position.y_val)))
         file_viewWPs_NED.write('\n')
 
-        file_exec_real_speed.write(''.join('{}'.format(math.sqrt(getpose.kinematics_estimated.linear_velocity.x_val**2 + getpose.kinematics_estimated.linear_velocity.y_val**2 + getpose.kinematics_estimated.linear_velocity.z_val**2))))
+        file_exec_real_speed.write(''.join('{}'.format(math.sqrt(
+            getpose.kinematics_estimated.linear_velocity.x_val ** 2 + getpose.kinematics_estimated.linear_velocity.y_val ** 2 + getpose.kinematics_estimated.linear_velocity.z_val ** 2))))
         file_exec_real_speed.write('\n')
 
         if turn is True:
@@ -331,9 +314,11 @@ if __name__ == '__main__':
             file_exec_speed.write(''.join('{}'.format(velocity)))
             file_exec_speed.write('\n')
 
+
     """
     Parameters
     """
+    turn = False
     corner_radius = corner_radius
     mission_type = mission_type
     velocity = initial_velocity  # Define the speed of the mission
@@ -363,7 +348,7 @@ if __name__ == '__main__':
     file_exec_time = open(completeName_exe_time, "w")
 
     # Write dummy speed
-    file_name_speed = "Marios_Speed.txt"
+    file_name_speed = "Dummy_Speed.txt"
     completeName_speed = os.path.join(save_path_wps, file_name_speed)
     file_exec_speed = open(completeName_speed, "w")
 
@@ -381,16 +366,10 @@ if __name__ == '__main__':
         speed_adj.get_prediction(dummy_img)
 
     print("DroneNo 1 is flying on path...")
-    # lookahead= velocity + velocity / 2
-    # For ForwardOnly mode (Heading towards path)
-    # resulting_path = client.moveOnPathAsync(path_No1, velocity, 500, airsim.DrivetrainType.ForwardOnly,
-    #                                         airsim.YawMode(False, 0), 3 + 3 / 2, vehicle_name='Drone1')
 
+    # For ForwardOnly mode (Heading towards path)
     resulting_path = client.moveOnPathAsync(path_No1, 2, 500, airsim.DrivetrainType.ForwardOnly,
                                             airsim.YawMode(False, 0), vehicle_name='Drone1')
-
-    # resulting_path = client.moveToPositionAsync(path_No1[0].x_val, path_No1[0].y_val, path_No1[0].z_val, 2, 500, airsim.DrivetrainType.ForwardOnly,
-    #                                         airsim.YawMode(False, 0), vehicle_name='Drone1')
 
     print("WPs to go:", len(path_No1))
 
@@ -412,6 +391,7 @@ if __name__ == '__main__':
             # start measuring execution time
             start = time.time()
 
+            # start measuring execution time via AirSim (same)
             # get_time = client.getMultirotorState('Drone1')
             # start_date_time = datetime.fromtimestamp(get_time.timestamp // 1000000000)
             # print(" --- First WP !! - Drone starts to follow the path at {} ---".format(start_date_time))
@@ -441,13 +421,13 @@ if __name__ == '__main__':
         if mission_type == 'variable' and ned_dist > corner_radius:
             if turn is True:
                 resulting_path = client.moveOnPathAsync(path_No1, velocity, 500, airsim.DrivetrainType.ForwardOnly,
-                                        airsim.YawMode(False, 0), vehicle_name='Drone1')
+                                                        airsim.YawMode(False, 0), vehicle_name='Drone1')
                 turn = False  # Drone is in Turn
             else:
 
                 # """ Dummy adaptive mission """
                 # time.sleep(0.5)
-                # new_speed = random.uniform(5, 7)
+                # new_speed = random.uniform(4, 7)
                 # print('Speed adjusted to: {:.4f}'.format(new_speed))
                 #
                 # resulting_path = client.moveOnPathAsync(path_No1, new_speed, 500, airsim.DrivetrainType.ForwardOnly,
@@ -467,46 +447,12 @@ if __name__ == '__main__':
                 resulting_path = client.moveOnPathAsync(path_No1, new_speed, 500, airsim.DrivetrainType.ForwardOnly,
                                                         airsim.YawMode(False, 0), vehicle_name='Drone1')
         """ ---------------------------------------------------- """
-        # if mission_type == 'variable':
-        #     """CONTROL SPEED"""
-        #     # -- Step #1: Get current viewpoint -- #
-        #     waypoint = ViewWPs_WGS84[-1][0][0]  # [50.61460849406916, 6.989823076008492]
-        #     orientation = ViewWPs_WGS84_orientantion[-1]  # 39.97415723366056
-        #     # -- Step #2: Get new velocity -- #
-        #     img = viewpoint.get_image(waypoint, orientation)
-        #     new_speed = speed_adj.calculate_speed_adj(img)
-        #     print('Speed adjusted to: {:.4f}'.format(new_speed))
-        #     # -- Step #3: Update speed on path -- #
-        #     resulting_path = client.moveOnPathAsync(path_No1, new_speed, 500, airsim.DrivetrainType.ForwardOnly,
-        #                                             airsim.YawMode(False, 0), vehicle_name='Drone1')
-
-        # """CONTROL SPEED"""
-        # # -- Step #1: Get current viewpoint -- #
-        # waypoint = ViewWPs_WGS84[-1][0][0]  # [50.61460849406916, 6.989823076008492]
-        # orientation = ViewWPs_WGS84_orientantion[-1]  # 39.97415723366056
-        # # -- Step #2: Get new velocity -- #
-        # img = viewpoint.get_image(waypoint, orientation)
-        # new_speed = speed_adj.calculate_speed_adj(img)
-        # time.sleep(0.5)
-        # new_speed = random.uniform(5, 7)
-        # print('Speed adjusted to: {:.4f}'.format(new_speed))
-
-        # -- Step #3: Update speed on path -- #
-        # if ned_dist < corner_radius:
-        #     print("in Corner_radius mode")
-        # else:
-        #     time.sleep(0.5)
-        #     new_speed = random.uniform(5, 7)
-        #     print('Speed adjusted to: {:.4f}'.format(new_speed))
-        #
-        #
-        #     resulting_path = client.moveOnPathAsync(path_No1, new_speed, 500, airsim.DrivetrainType.ForwardOnly,
-        #                                             airsim.YawMode(False, 0), vehicle_name='Drone1')
 
         if len(path_No1) == 0:
             # End of execution time
             end = time.time()
 
+            # End of execution time via AirSim (same)
             # get_time = client.getMultirotorState('Drone1')
             # end_date_time = datetime.fromtimestamp(get_time.timestamp // 1000000000)
             # print(" --- Path has finished at {} ---".format(end_date_time))
@@ -536,8 +482,7 @@ if __name__ == '__main__':
     for i in range(droneNo):
         WGS84_Coords_interval[i].append(ConvCoords(geoCoords, geoObstacles).NEDToWGS84(wp_interval[i]))
 
-        # For Geoplaner
-
+        # For Geoplaner (Write ViewWaypoints in .gpx file compatible with geoplaner.com)
         root = ET.Element("gpx", version="1.1", creator="http://www.geoplaner.com",
                           xmlns="http://www.topografix.com/GPX/1/1",
                           schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd")
@@ -560,8 +505,7 @@ if __name__ == '__main__':
                     ET.SubElement(elem, "name").text = "WP" + str(l)
 
                 tree = ET.ElementTree(root)
-                tree.write(
-                    "D:\AirSim\PythonClient\\adaptive_path_planning\pathFollowingGeo_interval" + str(i + 1) + ".gpx",
+                tree.write("" + str(i + 1) + ".gpx",
                     xml_declaration="1.0",
                     encoding="UTF-8")
 
@@ -581,4 +525,3 @@ if __name__ == '__main__':
 
     # that's enough fun for now. let's quit cleanly
     client.enableApiControl(False, "Drone1")
-
