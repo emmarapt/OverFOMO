@@ -192,7 +192,7 @@ Towards this direction, simulated missions deployed with the baseline and the ac
 
 <div align="center">
   <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/Qualitative_Results.png">
-    <img src="images/Qualitative_Results.png" alt="" width="1400" height="570">
+    <img src="images/Qualitative_Results.png" alt="" width="1400" height="520">
   </a>
 </div>
 
