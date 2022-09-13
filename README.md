@@ -73,11 +73,13 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-First, to run the project you should install the required system packages:
+**Step 1. To run the project you should install the required system packages:**
    ```sh
    pip install -r requirements.txt (FIX LIBRARIES AS STANDALONE PROJECT)
    ```
-Second, install GDAL.
+> Note: 
+
+**Step 2. Install GDAL.**
 
    1. Download a pre-built [gdal wheel file](https://www.lfd.uci.edu/~gohlke/pythonlibs/#gdal)
    
@@ -92,7 +94,9 @@ Second, install GDAL.
     
    If you use anaconda environment, please follow the [tutorial for installing gdal with conda](https://opensourceoptions.com/blog/how-to-install-gdal-with-anaconda/).
 
-Third, for the adaptive path planning approach you should download any available dataset for precision agriculture applications. 
+**Step 3. Install TensorFlow for CPU & GPU support based on your system requirements.**
+
+**Step 4. For the adaptive path planning approach you should download any available dataset for precision agriculture applications.** 
 
 > Note: The [ASLdataset](https://projects.asl.ethz.ch/datasets/doku.php?id=weedmap:remotesensing2018weedmap) Weed Map Dataset was used for this research.
  
@@ -103,26 +107,20 @@ Third, for the adaptive path planning approach you should download any available
    ```sh
    git clone https://github.com/emmarapt/Adaptive_Coverage_Path_Planning.git
    ```
-2. Install AirSim
-   ```sh
-   pip install AirSim
-   ```
-   For more information, please refer to the [Documentation](https://microsoft.github.io/AirSim/).
    
-3. Download any of the available [AirSim Environments](https://github.com/microsoft/AirSim/releases) based on your OS
+2. Download any of the available [AirSim Environments](https://github.com/microsoft/AirSim/releases) based on your OS
   
-  
-4. Open an AirSim environment
+3. Open an AirSim environment
     
-   4.1 For Windows users:
+   * *3.1 For Windows users:*
    
-   Go to AirSim's environment folder and launch Unreal by running the .exe application 
+   Go to AirSim's environment folder and launch Unreal by running the .exe application. 
    
-   4.2 For Linux users:
+   * *3.2 For Linux users:*
    
-   Go to AirSim's environment folder via a terminal and launch Unreal by running the .sh file 
+   Go to AirSim's environment folder via a terminal and launch Unreal by running the .sh file.
 
-5. Finally, navigate to project directory and run:
+4. Finally, navigate to project directory and run:
     ```sh
    python main.py
    ```
