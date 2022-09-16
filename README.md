@@ -56,17 +56,15 @@
 <!-- ############################################### -->
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-<!-- [![product-screenshot]](https://raw.githubusercontent.com/emmarapt/Adaptive_Coverage_Path_Planning/main/images/adaptive_pipeline.png?token=GHSAT0AAAAAABYET72HHW34TQECP5O5LUGIYZENLLA) -->
 <div align="center">
   <a href="https://raw.githubusercontent.com/emmarapt/Adaptive_Coverage_Path_Planning/main/images/adaptive_pipeline.png?token=GHSAT0AAAAAABYET72HHW34TQECP5O5LUGIYZENLLA">
     <img src="https://raw.githubusercontent.com/emmarapt/Adaptive_Coverage_Path_Planning/main/images/adaptive_pipeline.png?token=GHSAT0AAAAAABYET72HHW34TQECP5O5LUGIYZENLLA" alt="" width="1000" height="">
   </a>
 </div>
+
 This project deals with the path planning of a mobile robot in an active sensing coverage path planning scheme adjusting the robot's speed based on the online received information of the captured images. 
 At the heart of the proposed approach lies a novel mechanism that regulates the speed of the robot in accordance with both the relative quantity of identified classes (i.e., crops and weeds) and the confidence level of such detection. 
-A state-of-the-art deep learning segmentation model is deployed for the identification and classification of crops and weeds in the incoming images.
-The overall methodology is integrated into a simurealistic pipeline utilizing [AirSim](https://github.com/microsoft/AirSim) simulator for real-time reactions and observations.
+A state-of-the-art deep learning segmentation model is deployed for the identification and classification of crops and weeds in the incoming images. The overall methodology is integrated into a simu-realistic pipeline utilizing [AirSim](https://github.com/microsoft/AirSim) simulator for real-time reactions and observations.
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
