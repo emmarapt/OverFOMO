@@ -4,8 +4,10 @@
 <br />
 
 <div align="center">
-  <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/Logo1.png">
-    <img src="images/Logo1.png" alt="" width="550" height="200">
+
+  
+  <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/visual_abstract.png">
+    <img src="images/visual_abstract.png" alt="" width="850" height="300">
   </a>
 
   <h3 align="center">Adaptive Coverage Path Planning</h3>
@@ -55,12 +57,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/Logo.png)
+[![product-screenshot]](https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/adaptive_pipeline.png)
 
 This project deals with the path planning of a mobile robot in an active sensing coverage path planning scheme adjusting the robot's speed based on the online received information of the captured images. 
 At the heart of the proposed approach lies a novel mechanism that regulates the speed of the robot in accordance with both the relative quantity of identified classes (i.e., crops and weeds) and the confidence level of such detection. 
-Based on the [UNet-add ref]() architecture, a state-of-the-art deep learning segmentation model is deployed for the identification and classification of crops and weeds in the incoming images.
-The overall methodology is integrated into a simurealistic pipeline utilizing [AirSim](https://github.com/microsoft/AirSim) simulator for real-time observations.
+A state-of-the-art deep learning segmentation model is deployed for the identification and classification of crops and weeds in the incoming images.
+The overall methodology is integrated into a simurealistic pipeline utilizing [AirSim](https://github.com/microsoft/AirSim) simulator for real-time reactions and observations.
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -78,8 +80,11 @@ To get a local copy up and running follow these simple steps.
    ```sh
    pip install -r requirements.txt
    ```
+> Note: TensorFlow version for CPU & GPU support may differ based on your system requirements.
 
-**Step 2. Install GDAL.**
+**Step 2. Install [CUDA](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html) based on your system requirements (For GPU support).**
+
+**Step 3. Install GDAL.**
 
    1. Download a pre-built [gdal wheel file](https://www.lfd.uci.edu/~gohlke/pythonlibs/#gdal)
    
@@ -94,7 +99,7 @@ To get a local copy up and running follow these simple steps.
     
    If you use anaconda environment, please follow the [tutorial for installing gdal with conda](https://opensourceoptions.com/blog/how-to-install-gdal-with-anaconda/).
 
-**Step 3. Install TensorFlow for CPU & GPU support based on your system requirements.**
+<!-- **Step 3. Install TensorFlow for CPU & GPU support based on your system requirements.** -->
 
 **Step 4. For the adaptive path planning approach you should download any available dataset for precision agriculture applications.** 
 
@@ -120,10 +125,19 @@ To get a local copy up and running follow these simple steps.
    
    Go to AirSim's environment folder via a terminal and launch Unreal by running the .sh file.
 
-4. Finally, navigate to project directory and run:
+4. Navigate to project directory via a terminal and run:
     ```sh
    python main.py
    ```
+   
+5. Follow the message for Take-off:
+
+   ```sh
+   Press any key to takeoff
+   ```
+   
+  Enjoy the flight! <img src="https://www.pngitem.com/pimgs/m/482-4828888_aircraft-take-off-plane-take-off-icon-hd.png" alt="" width="50" height="25">
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -192,7 +206,7 @@ Towards this direction, simulated missions deployed with the baseline and the ac
 
 <div align="center">
   <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/Qualitative_Results.png">
-    <img src="images/Qualitative_Results.png" alt="" width="1400" height="520">
+    <img src="images/Qualitative_Results.png" alt="" width="900" height="500">
   </a>
 </div>
 
@@ -250,4 +264,4 @@ This research has been financed by the European Regional Development Fund of the
 (Not published yet)
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[product-screenshot]: https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/adaptive_flow_chart.png
+[product-screenshot]: https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/adaptive_pipeline.png
