@@ -6,8 +6,8 @@
 <div align="center">
 
   
-  <a href="https://raw.githubusercontent.com/emmarapt/Adaptive_Coverage_Path_Planning/main/images/visual_abstract.png?token=GHSAT0AAAAAABYET72HGAKC25R6RHBLGKDSYZENJEA">
-    <img src="https://raw.githubusercontent.com/emmarapt/Adaptive_Coverage_Path_Planning/main/images/visual_abstract.png?token=GHSAT0AAAAAABYET72HGAKC25R6RHBLGKDSYZENJEA" alt="" width="1000" height="">
+  <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/visual_abstract.png">
+    <img src="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/visual_abstract.png" alt="" width="1000" height="">
   </a>
 
   <h3 align="center">Adaptive Coverage Path Planning</h3>
@@ -57,8 +57,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <div align="center">
-  <a href="https://raw.githubusercontent.com/emmarapt/Adaptive_Coverage_Path_Planning/main/images/adaptive_pipeline.png?token=GHSAT0AAAAAABYET72HHW34TQECP5O5LUGIYZENLLA">
-    <img src="https://raw.githubusercontent.com/emmarapt/Adaptive_Coverage_Path_Planning/main/images/adaptive_pipeline.png?token=GHSAT0AAAAAABYET72HHW34TQECP5O5LUGIYZENLLA" alt="" width="1000" height="">
+  <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/adaptive_pipeline.png">
+    <img src="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/adaptive_pipeline.png" alt="" width="1000" height="">
   </a>
 </div>
 
