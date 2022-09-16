@@ -7,7 +7,7 @@
 
   
   <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/visual_abstract.png">
-    <img src="images/visual_abstract.png" alt="" width="850" height="300">
+    <img src="images/visual_abstract.png" alt="" width="850" height="280">
   </a>
 
   <h3 align="center">Adaptive Coverage Path Planning</h3>
@@ -57,8 +57,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![product-screenshot]](https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/adaptive_pipeline.png)
-
+<!-- [![product-screenshot]](https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/adaptive_pipeline.png) -->
+<div align="center">
+  <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/adaptive_pipeline.png">
+    <img src="images/adaptive_pipeline.png" alt="" width="850" height="200">
+  </a>
+</div>
 This project deals with the path planning of a mobile robot in an active sensing coverage path planning scheme adjusting the robot's speed based on the online received information of the captured images. 
 At the heart of the proposed approach lies a novel mechanism that regulates the speed of the robot in accordance with both the relative quantity of identified classes (i.e., crops and weeds) and the confidence level of such detection. 
 A state-of-the-art deep learning segmentation model is deployed for the identification and classification of crops and weeds in the incoming images.
