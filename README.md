@@ -6,8 +6,8 @@
 <div align="center">
 
   
-  <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/visual_abstract.png">
-    <img src="images/visual_abstract.png" alt="" width="850" height="280">
+  <a href="https://raw.githubusercontent.com/emmarapt/Adaptive_Coverage_Path_Planning/main/images/visual_abstract.png?token=GHSAT0AAAAAABYET72HGAKC25R6RHBLGKDSYZENJEA">
+    <img src="https://raw.githubusercontent.com/emmarapt/Adaptive_Coverage_Path_Planning/main/images/visual_abstract.png?token=GHSAT0AAAAAABYET72HGAKC25R6RHBLGKDSYZENJEA" alt="" width="1000" height="">
   </a>
 
   <h3 align="center">Adaptive Coverage Path Planning</h3>
@@ -57,10 +57,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<!-- [![product-screenshot]](https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/adaptive_pipeline.png) -->
+<!-- [![product-screenshot]](https://raw.githubusercontent.com/emmarapt/Adaptive_Coverage_Path_Planning/main/images/adaptive_pipeline.png?token=GHSAT0AAAAAABYET72HHW34TQECP5O5LUGIYZENLLA) -->
 <div align="center">
-  <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/adaptive_pipeline.png">
-    <img src="images/adaptive_pipeline.png" alt="" width="850" height="200">
+  <a href="https://raw.githubusercontent.com/emmarapt/Adaptive_Coverage_Path_Planning/main/images/adaptive_pipeline.png?token=GHSAT0AAAAAABYET72HHW34TQECP5O5LUGIYZENLLA">
+    <img src="https://raw.githubusercontent.com/emmarapt/Adaptive_Coverage_Path_Planning/main/images/adaptive_pipeline.png?token=GHSAT0AAAAAABYET72HHW34TQECP5O5LUGIYZENLLA" alt="" width="1000" height="">
   </a>
 </div>
 This project deals with the path planning of a mobile robot in an active sensing coverage path planning scheme adjusting the robot's speed based on the online received information of the captured images. 
@@ -140,7 +140,7 @@ To get a local copy up and running follow these simple steps.
    Press any key to takeoff
    ```
    
-  Enjoy the flight! <img src="https://www.pngitem.com/pimgs/m/482-4828888_aircraft-take-off-plane-take-off-icon-hd.png" alt="" width="50" height="25">
+  Enjoy the flight! <img src="https://cdn-icons-png.flaticon.com/512/72/72592.png" alt="" width="40" height="40">
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -209,8 +209,8 @@ To validate the efficiency of the Adaptive Coverage Path Planning method we eval
 Towards this direction, simulated missions deployed with the baseline and the active sensing method are conducted for the field "002" of the Weedmap [ASLdataset](https://projects.asl.ethz.ch/datasets/doku.php?id=weedmap:remotesensing2018weedmap), with nominal speed of 3 m/s. 
 
 <div align="center">
-  <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/Qualitative_Results.png">
-    <img src="images/Qualitative_Results.png" alt="" width="900" height="500">
+  <a href="https://raw.githubusercontent.com/emmarapt/Adaptive_Coverage_Path_Planning/main/images/Qualitative_Results.png?token=GHSAT0AAAAAABYET72H5R7UH6IAIHJB3LYMYZENNUA">
+    <img src="https://raw.githubusercontent.com/emmarapt/Adaptive_Coverage_Path_Planning/main/images/Qualitative_Results.png?token=GHSAT0AAAAAABYET72H5R7UH6IAIHJB3LYMYZENNUA" alt="" width="900" height="">
   </a>
 </div>
 
