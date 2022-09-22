@@ -207,8 +207,8 @@ To validate the efficiency of the Adaptive Coverage Path Planning method we eval
 Towards this direction, simulated missions deployed with the baseline and the active sensing method are conducted for the field "002" of the Weedmap [ASLdataset](https://projects.asl.ethz.ch/datasets/doku.php?id=weedmap:remotesensing2018weedmap), with nominal speed of 3 m/s. 
 
 <div align="center">
-  <a href="https://raw.githubusercontent.com/emmarapt/Adaptive_Coverage_Path_Planning/main/images/Qualitative_Results.png?token=GHSAT0AAAAAABYET72H5R7UH6IAIHJB3LYMYZENNUA">
-    <img src="https://raw.githubusercontent.com/emmarapt/Adaptive_Coverage_Path_Planning/main/images/Qualitative_Results.png?token=GHSAT0AAAAAABYET72H5R7UH6IAIHJB3LYMYZENNUA" alt="" width="900" height="">
+  <a href="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/Qualitative_Results.png">
+    <img src="https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/Qualitative_Results.png" alt="" width="900" height="">
   </a>
 </div>
 
