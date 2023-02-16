@@ -70,6 +70,6 @@ tornado==4.5.3
 tqdm==4.62.3
 typing-extensions==3.7.4.3
 urllib3==1.26.12
-Werkzeug==2.0.3
+Werkzeug==2.2.3
 wrapt==1.12.1
 zipp==3.6.0
