@@ -263,7 +263,17 @@ This research has been financed by the European Regional Development Fund of the
 <!-- REFERENCES -->
 ## Cite As:
 
-(Not published yet)
+M. Krestenitis, E. K. Raptis, A. C. Kapoutsis, K. Ioannidis, E. B. Kosmatopoulos, and S. Vrochidis, “Overcome the fear of missing out: Active sensing UAV scanning for precision agriculture,” Robotics and Autonomous Systems, p. 104581, 2023. [[LINK]](https://www.sciencedirect.com/science/article/pii/S0921889023002208?casa_token=Q3rGp9yQ4mUAAAAA:Qbmq0Y_O2vHUFpHkSmpZYaePm4LlK_iFB3JM7mydPZx-EZfIncASZMR21dIRqSL1Zx5EVH3-xME)
+```
+@article{krestenitis2023overcome,
+  title={Overcome the fear of missing out: Active sensing UAV scanning for precision agriculture},
+  author={Krestenitis, Marios and Raptis, Emmanuel K and Kapoutsis, Athanasios Ch and Ioannidis, Konstantinos and Kosmatopoulos, Elias B and Vrochidis, Stefanos},
+  journal={Robotics and Autonomous Systems},
+  pages={104581},
+  year={2023},
+  publisher={Elsevier}
+}
+```
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: https://github.com/emmarapt/Adaptive_Coverage_Path_Planning/blob/main/images/adaptive_pipeline.png
